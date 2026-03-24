@@ -84,11 +84,11 @@ public:
     BankAccount(const string& owner, double initialBalance) {
         // TODO: Validate and set members
         if(owner.empty()) {
-           std::invalid_argument("Owner name cannot be empty" ) ;
+         throw invalid_argument("Owner name cannot be empty" ) ;
         }
         if(initialBalance < 0 ) {
             
-        std::  invalid_argument("Initial Balance cannot be negative" );
+         throw invalid_argument("Initial Balance cannot be negative" );
         }
         owner_ = owner;
         balance_ = initialBalance;
