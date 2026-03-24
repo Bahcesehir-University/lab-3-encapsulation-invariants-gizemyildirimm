@@ -84,11 +84,10 @@ public:
     BankAccount(const string& owner, double initialBalance) {
         // TODO: Validate and set members
         if(owner.empty()) {
-         throw invalid_argument("Owner name cannot be empty" ) ;
+           invalid_argument("Owner name cannot be empty" ) ;
         }
         if(initialBalance < 0 ) {
-            
-         throw invalid_argument("Initial Balance cannot be negative" );
+            invalid_argument("Initial Balance cannot be negative" );
         }
         owner_ = owner;
         balance_ = initialBalance;
@@ -136,7 +135,7 @@ public:
     void transfer(BankAccount& other, double amount) {
         // TODO: Implement using withdraw() and deposit()
         if (amount <= 0) {
-            throw runtime_error ("Transfer amount must be positive");
+            throw invalid_argument ("Transfer amount must be positive");
         }
         withdraw(amount);
         other.deposit(amount) ;
